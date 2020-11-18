@@ -25,3 +25,10 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## Ejecución Front
+
+Clone el repositorio en una carpeta especifica dentro de ordenador, posteriormente ejecute los siguientes comandos
+
+* npm i (Instala todas las dependencias)
+* ng serve -o (compila y ejecuta el front)
