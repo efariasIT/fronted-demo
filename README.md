@@ -30,5 +30,6 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 Clone el repositorio en una carpeta especifica dentro de ordenador, posteriormente ejecute los siguientes comandos
 
-* npm i (Instala todas las dependencias)
-* ng serve -o (compila y ejecuta el front)
+* haga checkout a la rama master
+* npm i | (Instala todas las dependencias)
+* ng serve -o | (compila y ejecuta el front)
