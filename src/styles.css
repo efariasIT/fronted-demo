@@ -1,1 +1,54 @@
 /* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.container {
+    /* width: 100%; */
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding-left: 5%;
+    padding-right: 5%;
+    /* height: 100vh; */
+    overflow: hidden;
+}
+
+.container-form {
+    /* width: 100%; */
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding-left: 15%;
+    padding-right: 15%;
+    /* height: 100vh; */
+    overflow: hidden;
+}
+
+.input-full-width {
+    width: 100%;
+}
+
+
+/* Mixins */
+
+@mixin custom-media-query-1 {
+    @media (max-width: 520px) {
+        @content;
+    }
+}
+
+@mixin custom-media-query-2 {
+    @media (max-width: 1029px) {
+        @content;
+    }
+}
+
+.input-full-width {
+    width: 100%;
+}

@@ -1,0 +1,101 @@
+<div [@enterAnimation]>
+
+    <div id="index-banner" class="banner-container">
+        <!-- Imagen Banner -->
+        <div class="banner"><img src="https://media.remitly.io/bancodebogota_sat_jun_15_2019.22jHWLeLYprb7rqMURuTkU.png" alt="homecenter"></div>
+    </div>
+
+    <div>
+        <h1 class="text-message">Creación de usuarios.</h1>
+    </div>
+
+    <!-- Container formulario -->
+    <div class="container-form" [formGroup]="formCES" style="padding-top: 2px;">
+
+        <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutGap="2%" style="padding-top: 4px;">
+
+            <!-- Documento -->
+            <div fxFlex>
+                <mat-form-field class="input-full-width">
+                    <mat-label>N° de Documento</mat-label>
+                    <input matInput placeholder="N° de Documento" formControlName="documento" autocomplete="off" required>
+                    <mat-error *ngIf="formCES.controls.documento.hasError('required') && formCES.controls.documento.touched">
+                        Este campo es requerido.
+                    </mat-error>
+                    <mat-error *ngIf="formCES.controls.documento.hasError('minlength') && formCES.controls.documento.touched">
+                        Mínimo 5 caracteres.
+                    </mat-error>
+                    <mat-error *ngIf="formCES.controls.documento.hasError('maxlength') && formCES.controls.documento.touched">
+                        Máximo 10 caracteres.
+                    </mat-error>
+                    <mat-error *ngIf="formCES.controls.documento.hasError('pattern') && formCES.controls.documento.touched">
+                        Solo se permiten números
+                    </mat-error>
+                    <mat-error *ngIf="formCES.controls.documento.hasError('required') && formCES.controls.documento.touched && existDocument">
+                        Número de documento ya existe en base de datos.
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <!-- Nombre -->
+            <div fxFlex>
+                <mat-form-field class="input-full-width">
+                    <mat-label>Nombre</mat-label>
+                    <input matInput placeholder="Nombre" formControlName="nombre" autocomplete="off" required>
+                    <mat-error *ngIf="formCES.controls.nombre.hasError('required') && formCES.controls.nombre.touched">
+                        Este campo es requerido.
+                    </mat-error>
+                    <mat-error *ngIf="formCES.controls.nombre.hasError('maxlength') && formCES.controls.nombre.touched">
+                        Máximo 30 caracteres.
+                    </mat-error>
+                    <mat-error *ngIf="formCES.controls.nombre.hasError('pattern') && formCES.controls.nombre.touched">
+                        Solo se admiten letras
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutGap="2%" style="padding-top: 4px;">
+
+            <!-- Genero -->
+            <div fxFlex>
+                <mat-form-field class="input-full-width">
+                    <mat-label> Genero </mat-label>
+                    <mat-select formControlName="genero" required>
+                        <mat-option *ngFor="let genero of tipoGenero" [value]="genero.id">
+                            {{ genero.value }}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="formCES.controls.genero.hasError('required') && formCES.controls.genero.touched">
+                        Este campo es requerido.
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <!-- Tipo -->
+            <div fxFlex>
+                <mat-form-field class="input-full-width">
+                    <mat-label> Tipo </mat-label>
+                    <mat-select formControlName="tipo" required>
+                        <mat-option *ngFor="let tipo of tipoPersona" [value]="tipo.id">
+                            {{ tipo.value }}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="formCES.controls.tipo.hasError('required') && formCES.controls.tipo.touched">
+                        Este campo es requerido.
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+
+        <br>
+        <!-- Botón de guardado -->
+        <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" style="margin-top: 10px;">
+            <div fxFlex fxLayoutAlign="center center">
+                <button mat-raised-button color="primary" class="btn-primary" (click)="guardarPersona()" [disabled]="!validForm">
+                    Enviar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
